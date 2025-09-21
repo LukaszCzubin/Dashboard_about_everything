@@ -1,28 +1,73 @@
 <!doctype html>
 <html lang="pl">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nawigacja z ustawieniami</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <nav class="sidebar">
     <ul class="menu">
       <li><a href="#home">
-        <img src="" alt="">
-        <span>Strona główna</span></a></li>
+          <img src="images/home.svg" alt="" width="40px">
+          <span>Dom</span></a></li>
       <li><a href="#dash">
-        
-        <span>Dashboard</span></a></li>
+          <img src="images/archery.svg" alt="" width="40px">
+          <span>Projekty</span></a></li>
       <li><a href="#tematy">
-        
-        <span>Tematyczne</span></a></li>
+          <img src="images/screen-play.svg" alt="" width="40px">
+          <span>Social Media</span></a></li>
+      <li><a href="#tematy">
+          <img src="images/usd-circle.svg" alt="" width="40px">
+          <span>Waluty</span></a></li>
     </ul>
   </nav>
+  <div class="container">
+    <main class="glassmain">
+      <div class="block" id="day">
+        <div class="information">
+          <div class="title">
+            <h1>Dzisiejszy dzień</h1>
+            <h2 id="dzien"></h2>
+          </div>
 
-  <main class="glassmain">
-    
-  </main>
+          <img src="images/archery.svg" alt="" width="25%">
+        </div>
+
+      </div>
+      <div class="block" id="temp-day">
+
+      </div>
+      <div class="block" id="temp">
+        <div class="top">
+          <h2>Śr.Temperatura</h2>
+        </div>
+        <div class="gauge">
+          <div id="temp_circle"></div>
+          <div class="gauge-center">
+            <span id="temp_value">--°C</span>
+            <div class="icon">
+              <img src="images/home.svg" alt="" width="30px">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block" id="intense">
+
+      </div>
+      <div class="block" id="power">
+
+      </div>
+      <div class="block" id="turn">
+
+      </div>
+
+    </main>
+  </div>
+  <script src="script.js"></script>
 </body>
+
 </html>
