@@ -8,6 +8,12 @@ console.log(day)
 let blok1 = document.getElementById("dzien");
 blok1.textContent = `${day}`;
 
+const temperatura = [25,28,16,17,16,15,30];
+let temperature_show = temperatura[d.getDay()];
+console.log(temperature_show);
+let blok2 = document.getElementById("temp")
+blok2.textContent = `${temperature_show}°C`
+
 // kuchnia łazienka salon pokój
 
   const House_temp = [
