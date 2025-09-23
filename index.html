@@ -64,8 +64,20 @@
         </div>
       </div>
       <div class="block" id="intense">
-
+        <div class="top">
+          <h2>Procent oświetlenia</h2>
+        </div>
+        <div class="gauge">
+          <div id="usage_circle"></div>
+          <div class="usage-center">
+            <span id="usage_value">--%</span>
+            <div class="icon">
+              <img src="images/home.svg" alt="" width="30px">
+            </div>
+          </div>
+        </div>
       </div>
+
       <div class="block" id="power">
         <div class="title">
           <h2>zużycie prądu</h2>
@@ -77,7 +89,7 @@
             <div class="chart_name"> Kuchnia</div>
             <div class="chartline"></div>
             <div class="chart_chart">
-              <div class="chart_chart_chart"></div>
+              <div class="chart_chart_chart" id="kuchnia"></div>
             </div>
           </div>
 
@@ -85,27 +97,44 @@
             <div class="chart_name"> Łazienka</div>
             <div class="chartline"></div>
             <div class="chart_chart2">
-              <div class="chart_chart_chart2"></div>
+              <div class="chart_chart_chart2" id="lazienka"></div>
             </div>
           </div>
           <div class="chart">
             <div class="chart_name"> Salon</div>
             <div class="chartline"></div>
             <div class="chart_chart">
-              <div class="chart_chart_chart"></div>
+              <div class="chart_chart_chart" id="salon"></div>
             </div>
           </div>
           <div class="chart">
             <div class="chart_name"> Pokój</div>
             <div class="chartline"></div>
             <div class="chart_chart2">
-              <div class="chart_chart_chart2"></div>
+              <div class="chart_chart_chart2" id="pokoj"></div>
             </div>
           </div>
         </div>
       </div>
       <div class="block" id="turn">
-
+        <div class="inputs">
+          <div class="pstryczek">
+            <div class="pstryczek_title">Kuchnia</div>
+            <input type="checkbox" id="kitchen">
+          </div>
+          <div class="pstryczek">
+            <div class="pstryczek_title">Łazienka</div>
+            <input type="checkbox" id="bath">
+          </div>
+          <div class="pstryczek">
+            <div class="pstryczek_title">Salon</div>
+            <input type="checkbox" id="saloon">
+          </div>
+          <div class="pstryczek">
+            <div class="pstryczek_title">Pokój</div>
+            <input type="checkbox" id="room">
+          </div>
+        </div>
       </div>
 
     </main>

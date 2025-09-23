@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,7 +6,7 @@
 }
 
 body {
-  font-family: sans-serif;
+   font-family: "Urbanist", sans-serif;
   margin: 0;
   padding: 0;
   background-image: url('images/tlo.jpg');
@@ -177,7 +178,7 @@ display: flex;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: conic-gradient(from 270deg, orange 0% 0%, #ddd 0% 100%);
+  background: conic-gradient(from 270deg, #ffcc40 0% 0%, #ffeeb6 0% 100%);
 }
 
 .gauge-center {
@@ -215,8 +216,37 @@ position: absolute;
 #intense {
   grid-row: 1 / 5;
   grid-column: 5 / 7;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-
+#usage_circle{
+width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: .4s;
+  background: conic-gradient(from 270deg, #906eff 0% 0%, #c9c3fe 0% 100%);
+}
+.usage-center{
+position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: white;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: .4s;
+}
+#usage_value{
+    font-size: 2.9rem;
+    font-weight: bold;
+    height: 80px;
+}
 #power {
   grid-row: 3 / 5;
   grid-column: 1 / 4;
@@ -254,24 +284,24 @@ position: absolute;
   
   width: 100%;
   height: 50px;
-  background-color: purple;
+  background-color: #c9c3ff;
 }
 .chart_chart_chart{
   height: 100%;
   width: 50%;
-  background-color: rgb(182, 6, 182);
+  background-color: #906eff;
 }
 
 .chart_chart2{
   
   width: 100%;
   height: 50px;
-  background-color: yellow;
+  background-color: #ffeeb6;
 }
 .chart_chart_chart2{
   height: 100%;
   width: 50%;
-  background-color: rgb(248, 248, 131);
+  background-color: #ffcc40;
 }
 
 

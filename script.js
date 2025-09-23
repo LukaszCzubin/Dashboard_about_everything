@@ -1,40 +1,71 @@
-//tabele js do bloków z domu
+const roomMap = {
+  kitchen: 'kuchnia',
+  bath: 'lazienka',
+  saloon: 'salon',
+  room: 'pokoj'
+};
 
-const dni = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
 
-const d = new Date();
-let day = dni[d.getDay()];
-console.log(day)
-let blok1 = document.getElementById("dzien");
-blok1.textContent = `${day}`;
+const baseData = {
+  temperature: {
+    kuchnia: 32,
+    lazienka: 40,
+    salon: 18,
+    pokoj: 14
+  },
+  electricity: {
+    kuchnia: 45,
+    lazienka: 78,
+    salon: 50,
+    pokoj: 88
+  },
+  lights: {
+    kuchnia: 30,
+    lazienka: 30,
+    salon: 10,
+    pokoj: 30
+  }
+};
 
-const temperatura = [25,28,16,17,16,15,30];
-let temperature_show = temperatura[d.getDay()];
-console.log(temperature_show);
-let blok2 = document.getElementById("temp")
-blok2.textContent = `${temperature_show}°C`
+function updateData() {
+  let tempSum = 0;
+  let lightSum = 0;
+  let roomsCount = 0;
 
-// kuchnia łazienka salon pokój
+  for (let [id, name] of Object.entries(roomMap)) {
+    const isChecked = document.getElementById(id).checked;
 
-  const House_temp = [
-    { name: 'kuchnia', temp: 32 },
-    { name: 'lazienka', temp: 40 },
-    { name: 'salon', temp: 18 },
-    { name: 'pokoj', temp: 14 }
-  ];
+    const temp = isChecked ? baseData.temperature[name] : 0;
+    const usage = isChecked ? baseData.electricity[name] : 0;
+    const light = isChecked ? baseData.lights[name] : 0;
 
-  const suma = House_temp.reduce((s, r) => s + r.temp, 0);
-  const average = suma / House_temp.length;
+   
+    const bar = document.getElementById(name);
+    if (bar) bar.style.width = `${usage}%`;
 
-  const maxTemp = 50; 
-  const percent = Math.min(100, (average / maxTemp) * 100);
+    tempSum += temp;
+    lightSum += light;
+    roomsCount++;
+  }
 
-  const circle = document.getElementById("temp_circle");
-  circle.style.background = `conic-gradient(
-    from 190deg,
-    orange 0% ${percent}%,
-    #ddd ${percent}% 100%
-  )`;
 
-  document.getElementById("temp_value").textContent = `${average.toFixed(0)}°C`;
+  const avgTemp = tempSum / roomsCount;
+  const tempPercent = Math.min(100, avgTemp / 50 * 100);
+  document.getElementById("temp_value").textContent = `${avgTemp.toFixed(0)}°C`;
+  document.getElementById("temp_circle").style.background = `
+    conic-gradient(from 190deg, #ffcc40 0% ${tempPercent}%, #ffeeb6 ${tempPercent}% 100%)`;
 
+
+  const lightPercent = Math.min(100, lightSum);
+  document.getElementById("usage_value").textContent = `${lightSum.toFixed(0)}%`;
+  document.getElementById("usage_circle").style.background = `
+    conic-gradient(from 190deg, #906eff 0% ${lightPercent}%, #c9c3fe ${lightPercent}% 100%)`;
+}
+
+
+for (let id of Object.keys(roomMap)) {
+  document.getElementById(id).addEventListener('change', updateData);
+}
+
+
+updateData();
