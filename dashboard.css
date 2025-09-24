@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+
+body {
+    font-family: "Urbanist", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: blueviolet;
+    color: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(-45deg, #0f172a, #273452, #1a202c, #0f172a);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+h1{
+    font-size: 80px;
+}
+p{
+    font-size: 40px;
+}
+.button{
+margin: 80px 0;
+}
+a{
+  color: white;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 20px 40px;
+  box-shadow: 0 10px 30px rgba(2, 8, 23, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  position: relative;
+  overflow: hidden;
+  
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+

@@ -9,11 +9,16 @@
 </head>
 
 <body>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle">
+  <label for="nav-toggle" class="hamburger" aria-label="Otwórz menu">
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+  </label>
   <nav class="sidebar">
+    <div class="brand">Po prostu Dashboard</div>
     <ul class="menu">
-      <li><a href="#home">
+      <li><a href="strona.html">
           <img src="images/home.svg" alt="" width="40px">
-          <span>Dom</span></a></li>
+          <span>Strona głowna</span></a></li>
       <li><a href="#dash">
           <img src="images/archery.svg" alt="" width="40px">
           <span>Projekty</span></a></li>
@@ -24,7 +29,27 @@
           <img src="images/usd-circle.svg" alt="" width="40px">
           <span>Waluty</span></a></li>
     </ul>
+
+    <div class="sidebar-controls">
+      <input type="checkbox"  id="kitchen" class="sr-only" >
+      <label for="kitchen" class="ctrl-btn">Kuchnia</label>
+
+      <input type="checkbox"  id="bath" class="sr-only">
+      <label for="bath" class="ctrl-btn">Łazienka</label>
+
+      <input type="checkbox"  id="saloon" class="sr-only">
+      <label for="saloon" class="ctrl-btn">Salon</label>
+
+      <input type="checkbox"  id="room" class="sr-only">
+      <label for="room" class="ctrl-btn">Sypialnia</label>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="create-btn">Szpont</button>
+    </div>
   </nav>
+
+  <label for="nav-toggle" class="overlay"></label>
   <div class="container">
     <main class="glassmain">
       <div class="block" id="day">
@@ -34,7 +59,7 @@
             <h2 id="dzien"></h2>
           </div>
 
-          <img src="images/archery.svg" alt="" width="25%">
+         <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
         </div>
 
       </div>
@@ -45,7 +70,7 @@
             <h2 id="temp"></h2>
 
           </div>
-          <img src="images/archery.svg" alt="" width="25%">
+          <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thermometer-sun-icon lucide-thermometer-sun"><path d="M12 9a4 4 0 0 0-2 7.5"/><path d="M12 3v2"/><path d="m6.6 18.4-1.4 1.4"/><path d="M20 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/><path d="M4 13H2"/><path d="M6.34 7.34 4.93 5.93"/></svg>
 
         </div>
       </div>
@@ -58,7 +83,8 @@
           <div class="gauge-center">
             <span id="temp_value">--°C</span>
             <div class="icon">
-              <img src="images/home.svg" alt="" width="30px">
+             <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thermometer-icon lucide-thermometer"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+              
             </div>
           </div>
         </div>
@@ -72,7 +98,7 @@
           <div class="usage-center">
             <span id="usage_value">--%</span>
             <div class="icon">
-              <img src="images/home.svg" alt="" width="30px">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lamp-icon lucide-lamp"><path d="M12 12v6"/><path d="M4.077 10.615A1 1 0 0 0 5 12h14a1 1 0 0 0 .923-1.385l-3.077-7.384A2 2 0 0 0 15 2H9a2 2 0 0 0-1.846 1.23Z"/><path d="M8 20a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1z"/></svg>
             </div>
           </div>
         </div>
@@ -116,26 +142,90 @@
           </div>
         </div>
       </div>
-      <div class="block" id="turn">
-        <div class="inputs">
-          <div class="pstryczek">
-            <div class="pstryczek_title">Kuchnia</div>
-            <input type="checkbox" id="kitchen">
-          </div>
-          <div class="pstryczek">
-            <div class="pstryczek_title">Łazienka</div>
-            <input type="checkbox" id="bath">
-          </div>
-          <div class="pstryczek">
-            <div class="pstryczek_title">Salon</div>
-            <input type="checkbox" id="saloon">
-          </div>
-          <div class="pstryczek">
-            <div class="pstryczek_title">Pokój</div>
-            <input type="checkbox" id="room">
-          </div>
-        </div>
+      
+      <div class="block tasks" id="tasks">
+<div class="div5">
+                <section class="cal_style">
+                    <table id="calendar">
+                        <thead>
+                            <tr>
+                                <td><button id="prev">←</button></td>
+                                <td colspan="5" id="calendar_top" class="header">marzec 2025</td>
+                                <td><button id="next">→</button></td>
+                            </tr>
+                            <tr>
+                                <td>pon</td>
+                                <td>wto</td>
+                                <td>śro</td>
+                                <td>czw</td>
+                                <td>pt</td>
+                                <td>sob</td>
+                                <td>nie</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="td"></td>
+                                <td id="td"></td>
+                                <td id="td"></td>
+                                <td id="td"></td>
+                                <td id="td"></td>
+                                <td id="td">1</td>
+                                <td id="td">2</td>
+                            </tr>
+                            <tr>
+                                <td id="td">3</td>
+                                <td id="td">4</td>
+                                <td id="td">5</td>
+                                <td id="td">6</td>
+                                <td id="td">7</td>
+                                <td id="td">8</td>
+                                <td id="td">9</td>
+                            </tr>
+                            <tr>
+                                <td id="td">10</td>
+                                <td id="td">11</td>
+                                <td id="td">12</td>
+                                <td id="td">13</td>
+                                <td id="td">14</td>
+                                <td id="td">15</td>
+                                <td id="td">16</td>
+                            </tr>
+                            <tr>
+                                <td id="td">17</td>
+                                <td id="td">18</td>
+                                <td id="td">19</td>
+                                <td id="td">20</td>
+                                <td id="td">21</td>
+                                <td id="td">22</td>
+                                <td id="td">23</td>
+                            </tr>
+                            <tr>
+                                <td id="td">24</td>
+                                <td id="td">25</td>
+                                <td id="td">26</td>
+                                <td id="td">27</td>
+                                <td id="td">28</td>
+                                <td id="td">29</td>
+                                <td id="td">30</td>
+                            </tr>
+                            <tr>
+                                <td id="td">31</td>
+                                <td id="td"></td>
+                                <td id="td"></td>
+                                <td id="td"></td>
+                                <td id="td"></td>
+                                <td id="td"></td>
+                                <td id="td"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+
+
       </div>
+      
 
     </main>
   </div>

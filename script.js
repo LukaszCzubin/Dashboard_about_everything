@@ -5,8 +5,23 @@ const roomMap = {
   room: 'pokoj'
 };
 
+const dni = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
+
+const d = new Date();
+let day = dni[d.getDay()];
+console.log(day)
+let blok1 = document.getElementById("dzien");
+blok1.textContent = `${day}`;
+
+const temperatura = [25, 28, 16, 17, 16, 15, 30];
+let temperature_show = temperatura[d.getDay()];
+console.log(temperature_show);
+let blok2 = document.getElementById("temp")
+blok2.textContent = `${temperature_show}°C`
+
 
 const baseData = {
+
   temperature: {
     kuchnia: 32,
     lazienka: 40,
@@ -24,9 +39,60 @@ const baseData = {
     lazienka: 30,
     salon: 10,
     pokoj: 30
+  },
+  humadity: {
+    kuchnia: 20,
+    lazienka: 30,
+    salon: 40,
+    pokoj: 50
   }
 };
+  
+var aMonths = new Array('styczeń','luty','marzec','kwiecień','maj','czerwiec','lipiec','sierpień','wrzesień','październik','listopad','grudzien');
 
+var date = new Date();
+
+
+Calendar();
+
+
+document.querySelector('#prev').addEventListener('click', PrevMonth);
+document.querySelector('#next').addEventListener('click', NextMonth);
+
+
+function PrevMonth() {
+
+    date = new Date(date.getFullYear(), date.getMonth() - 1, 1);
+    Calendar(); 
+}
+
+
+function NextMonth() {
+ 
+    date = new Date(date.getFullYear(), date.getMonth() + 1, 1);
+    Calendar(); 
+}
+
+
+function Calendar() {
+    let  td = document.querySelectorAll('#calendar tbody td'); 
+    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1); 
+    const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0); 
+    const day = firstDay.getDay() ? firstDay.getDay() - 1 : 6; 
+
+
+    document.querySelector('#calendar_top').innerHTML = aMonths[date.getMonth()] + ' ' + date.getFullYear();
+
+    let dzien = 1; 
+    for (let i = 0; i < td.length; i++) {
+
+        td[i].innerHTML = (i >= day && dzien <= lastDay.getDate()) ? dzien++ : '';
+  
+        if (i >= 35) td[i].style.display = (day + dzien - 1 < 36) ? 'none' : '';
+    }
+    
+
+};
 function updateData() {
   let tempSum = 0;
   let lightSum = 0;
@@ -39,7 +105,7 @@ function updateData() {
     const usage = isChecked ? baseData.electricity[name] : 0;
     const light = isChecked ? baseData.lights[name] : 0;
 
-   
+
     const bar = document.getElementById(name);
     if (bar) bar.style.width = `${usage}%`;
 
